@@ -1,0 +1,43 @@
+@tailwind css;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1)), url('assets/img/nice-food-bg.jpg');
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+}
+
+nav a:hover {
+  border-bottom: 2px solid #ff1616;
+}
+
+@media screen and (max-width: 768px) {
+  nav ul {
+    background: #222;
+    width: calc(100% / 2);
+    position: fixed;
+    left: 0;
+    flex-direction: column;
+    padding: 3rem 1rem;
+    height: 100%;
+    top: 0;
+  }
+}

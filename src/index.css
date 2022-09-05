@@ -87,6 +87,14 @@ footer li {
   margin-top: 1rem;
 }
 
+#login {
+  background: radial-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1) 70%),
+    url("./assets/img/banner.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
 @media screen and (max-width: 540px) {
   html {
     font-size: 14px;

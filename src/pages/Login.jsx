@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Logo from "../utils/Logo";
 import Input from "../utils/form/Input";
 import Button from "../utils/form/Button";
 import useForm from "../hooks/useForm";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [user, handleChange, handleSubmit] = useForm();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const userCred = localStorage.getItem("USER_CRED");
+    if (userCred) {
+      navigate("/movies");
+    }
+  });
 
   return (
     <main id="login">

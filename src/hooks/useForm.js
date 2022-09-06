@@ -1,4 +1,5 @@
 import { useReducer } from "react";
+import { useNavigate } from "react-router-dom";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -19,6 +20,7 @@ const initialState = {
 
 const useForm = () => {
   const [user, dispatch] = useReducer(reducer, initialState);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     dispatch({
@@ -31,6 +33,7 @@ const useForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem("USER_CRED", JSON.stringify(user));
+    navigate("/movies");
   };
 
   return [user, handleChange, handleSubmit];

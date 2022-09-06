@@ -3,18 +3,32 @@ import Button from "../utils/form/Button";
 import Card from "../utils/movies/Card";
 import { BsSearch } from "react-icons/bs";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Movies = () => {
   const [keyword, setKeyword] = useState("");
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
   const apiKey = "k_1wiszdp7";
+  const navigate = useNavigate();
 
   const search = (e) => {
     e.preventDefault();
+    setLoading(true);
     axios
       .get(`https://imdb-api.com/API/SearchTitle/${apiKey}/${keyword}`)
-      .then((response) => setMovies(response.data.results));
+      .then((response) => {
+        setLoading(false);
+        setMovies(response.data.results);
+      });
   };
+
+  useEffect(() => {
+    const userCred = localStorage.getItem("USER_CRED");
+    if (!userCred) {
+      return navigate("/login");
+    }
+  });
 
   return (
     <div className="container">
@@ -37,12 +51,15 @@ const Movies = () => {
               key={index}
               title={movie.title}
               image={movie.image}
-              url={`https://imdb-api.com/API/Title/${apiKey}/${movie.id}`}
+              url={`/detail/${movie.id}`}
             />
           ))}
       </div>
-      {movies.length === 0 && (
+      {movies.length === 0 && loading === false && (
         <div className="flex justify-center">No Movies Found</div>
+      )}
+      {loading === true && (
+        <div className="flex justify-center">Loading...</div>
       )}
     </div>
   );

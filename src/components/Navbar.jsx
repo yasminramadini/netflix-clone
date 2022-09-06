@@ -11,7 +11,7 @@ const Navbar = () => {
           <Logo width="120px" />
         </a>
         <div className="flex items-center gap-7 ml-auto">
-          <div className="select-language border-2 border-white px-3 py-2 rounded flex items-center gap-1">
+          <div className="select-language border-2 border-white px-3 py-2 rounded flex items-center gap-1 hidden md:block">
             <MdLanguage className="text-white w-5 h-5" />
             <select
               name=""

@@ -95,6 +95,14 @@ footer li {
   height: 100vh;
 }
 
+.card {
+  border: 1px solid #5e5e5e;
+}
+
+.card img {
+  width: 100%;
+}
+
 @media screen and (max-width: 540px) {
   html {
     font-size: 14px;

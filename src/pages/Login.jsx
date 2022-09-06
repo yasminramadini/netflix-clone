@@ -35,7 +35,7 @@ const Login = () => {
               />
             </div>
             <div className="mb-3">
-              <Button text="SIGN IN" />
+              <Button text="SIGN IN" fullWidth={true} />
             </div>
             <div className="flex justify-between">
               <label htmlFor="rememberMe">
